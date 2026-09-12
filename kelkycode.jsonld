@@ -1,0 +1,38 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Evolution of the Kelly Code",
+  "alternativeHeadline": "From Identity to Cultural Systems",
+  "description": "An examination of the evolution of the Kelly Code from visual identity and recognizability toward autonomous cultural systems.",
+  "url": "https://kellycode.us/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Nicholas Van-Orton"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "NVO987-Culture Visuelle Moderne et Contemporaine",
+    "url": "https://www.nvo987.fr",
+    "brand": {
+      "@type": "Brand",
+      "name": "NVO987",
+      "url": "https://www.nvo987.fr"
+    }
+  },
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "NVO987-Culture Visuelle Moderne et Contemporaine",
+    "url": "https://www.nvo987.fr"
+  },
+  "copyrightYear": "2026",
+  "keywords": [
+    "Kelly Code",
+    "NVO987",
+    "Visual Identity",
+    "Cultural Systems",
+    "Visual Culture"
+  ]
+}
+</script>
