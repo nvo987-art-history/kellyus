@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- =========================================================
+       Kelly Code — Production-ready single-file experience
+       ========================================================= -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kelly Code | Nicholas Van-Orton | NVO987 - Culture Visuelle Moderne et Contemporaine</title>
+
+  <meta name="description" content="The Evolution of the Kelly Code: From Identity to Cultural Systems. An exploration of visual identity, relationships, cultural stabilization, autonomy, and systemic cultural operation.">
+  <meta name="keywords" content="Kelly Code, Nicholas Van-Orton, NVO987, visual identity, cultural systems, Sonia Delaunay, Grace Kelly, Jacqueline Kennedy, Beyoncé, visual culture">
+  <meta name="author" content="Nicholas Van-Orton">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#F4F3EF">
+  <link rel="canonical" href="https://kellycode.us/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kelly Code">
+  <meta property="og:title" content="Kelly Code | Nicholas Van-Orton | NVO987">
+  <meta property="og:description" content="The Evolution of the Kelly Code: From Identity to Cultural Systems.">
+  <meta property="og:url" content="https://kellycode.us/">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kelly Code | Nicholas Van-Orton | NVO987">
+  <meta name="twitter:description" content="The Evolution of the Kelly Code: From Identity to Cultural Systems.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+       ========================================================= */
+    :root {
+      --canvas: #f4f3ef;
+      --canvas-soft: #fbfbfa;
+      --paper: rgba(255, 255, 255, 0.42);
+      --ink: #2c2d2d;
+      --ink-soft: #676863;
+      --ink-faint: #94958f;
+      --accent: #c5a059;
+      --accent-soft: rgba(197, 160, 89, 0.18);
+      --line: rgba(44, 45, 45, 0.13);
+      --line-light: rgba(44, 45, 45, 0.07);
+
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+
+      --container: 1240px;
+      --gutter: clamp(1.25rem, 4vw, 4rem);
+      --section-space: clamp(5rem, 10vw, 10rem);
+    }
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--canvas);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(197, 160, 89, 0.075),
+          transparent 25rem
+        ),
+        radial-gradient(
+          circle at 88% 28%,
+          rgba(44, 45, 45, 0.025),
+          transparent 32rem
+        ),
+        var(--canvas);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::selection {
+      color: var(--canvas-soft);
+      background: var(--ink);
+    }
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.8rem 1rem;
+      color: var(--canvas-soft);
+      background: var(--ink);
+      transform: translateY(-200%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    /* =========================================================
+       GLOBAL LAYOUT
+       ========================================================= */
+    .container {
+      width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.67rem;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 2rem;
+      height: 1px;
+      content: "";
+      background: var(--accent);
+    }
+
+    /* =========================================================
+       HEADER / NAVIGATION
+       ========================================================= */
+    .site-header {
+      position: relative;
+      z-index: 10;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: 5.75rem;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.015em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.25rem, 3vw, 2.75rem);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      transition: color 250ms ease;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: -0.45rem;
+      left: 0;
+      width: 0;
+      height: 1px;
+      margin-inline: auto;
+      content: "";
+      background: var(--accent);
+      transition: width 280ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a[aria-current="page"]::after {
+      width: 100%;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(5rem, 13vw, 11rem) clamp(5rem, 9vw, 8rem);
+    }
+
+    .hero::after {
+      position: absolute;
+      top: 9%;
+      right: -8rem;
+      width: min(34vw, 31rem);
+      aspect-ratio: 1;
+      border: 1px solid var(--accent-soft);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 3rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1030px;
+    }
+
+    .hero h1 {
+      max-width: 1050px;
+      margin: 1.25rem 0 2rem;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 9vw, 8.5rem);
+      font-weight: 500;
+      line-height: 0.88;
+      letter-spacing: -0.055em;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero-intro {
+      max-width: 670px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.9;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-top: clamp(3rem, 7vw, 6rem);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .hero-meta-label {
+      color: var(--ink-faint);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta-value {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+
+    /* =========================================================
+       ARTICLE
+       ========================================================= */
+    .article-shell {
+      padding-bottom: var(--section-space);
+    }
+
+    .article-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      padding: clamp(2.5rem, 6vw, 5rem) 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-intro h2 {
+      max-width: 560px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.35rem, 5vw, 4.25rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+    }
+
+    .article-intro p {
+      max-width: 670px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+    }
+
+    .chapters {
+      margin-top: clamp(3.5rem, 8vw, 8rem);
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-block: clamp(3rem, 7vw, 6rem);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter-index {
+      color: var(--accent);
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .chapter-title {
+      margin: 0.8rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .chapter-content {
+      max-width: 720px;
+    }
+
+    .chapter-content p {
+      margin: 0 0 1.55rem;
+      color: var(--ink-soft);
+      font-size: clamp(0.98rem, 1.3vw, 1.07rem);
+      line-height: 1.95;
+    }
+
+    .chapter-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .chapter-content strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pull-quote {
+      position: relative;
+      margin: clamp(2rem, 5vw, 4rem) 0;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border-left: 1px solid var(--accent);
+      background: var(--paper);
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    /* =========================================================
+       FINAL SECTION
+       ========================================================= */
+    .closing {
+      padding-top: var(--section-space);
+    }
+
+    .closing-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(2rem, 7vw, 6rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.55),
+          rgba(197, 160, 89, 0.045)
+        );
+    }
+
+    .closing-card::after {
+      position: absolute;
+      right: -10%;
+      bottom: -45%;
+      width: min(55vw, 45rem);
+      aspect-ratio: 1;
+      border: 1px solid var(--accent-soft);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .closing-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing h2 {
+      max-width: 850px;
+      margin: 1rem 0 2rem;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .closing p {
+      max-width: 780px;
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.95;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding-block: clamp(3rem, 7vw, 5.5rem);
+    }
+
+    .footer-label {
+      display: block;
+      margin-bottom: 1.15rem;
+      color: var(--ink-faint);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .footer-block p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-link {
+      position: relative;
+      display: inline-block;
+      color: var(--ink);
+      font-size: 0.93rem;
+      transition: color 220ms ease;
+    }
+
+    .footer-link::after {
+      position: absolute;
+      right: 0;
+      bottom: 0.1em;
+      left: 0;
+      height: 1px;
+      content: "";
+      background: var(--accent);
+      transform: scaleX(0.25);
+      transform-origin: left;
+      transition: transform 260ms ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .footer-author {
+      color: var(--ink) !important;
+      font-family: var(--serif);
+      font-size: 1.25rem !important;
+      line-height: 1.35 !important;
+    }
+
+    .footer-subtitle {
+      display: block;
+      margin-top: 0.55rem;
+      color: var(--ink-soft);
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-block: 1.35rem;
+      border-top: 1px solid var(--line-light);
+      color: var(--ink-faint);
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATIONS
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 900ms cubic-bezier(.22, .61, .36, 1),
+        transform 900ms cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 100ms;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 200ms;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (min-width: 700px) {
+      .hero-meta {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .article-intro {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(3rem, 8vw, 9rem);
+        align-items: start;
+      }
+
+      .chapter {
+        grid-template-columns: minmax(160px, 0.38fr) minmax(0, 1fr);
+        gap: clamp(3rem, 9vw, 10rem);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(2rem, 7vw, 7rem);
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.18fr);
+      }
+
+      .footer-block:nth-child(3) {
+        padding-left: clamp(1rem, 3vw, 3rem);
+        border-left: 1px solid var(--line-light);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav {
+        min-height: 5rem;
+      }
+
+      .brand {
+        font-size: 1.25rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        font-size: 0.58rem;
+        letter-spacing: 0.09em;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 4.4rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://kellycode.us/" aria-label="Kelly Code Home">
+        Kelly Code
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li>
+            <a href="https://kellycode.us/" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a
+              href="https://nvo987.fr/mentions-legales.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mentions Légales
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow reveal">Visual Culture / Research System</p>
+
+          <h1 id="page-title" class="reveal reveal-delay-1">
+            <span>The Evolution</span>
+            <span>of the <em>Kelly Code</em></span>
+          </h1>
+
+          <p class="hero-intro reveal reveal-delay-2">
+            From Identity to Cultural Systems
+          </p>
+
+          <div class="hero-meta reveal">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Framework</span>
+              <span class="hero-meta-value">Identity → System</span>
+            </div>
+
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Trajectory</span>
+              <span class="hero-meta-value">V1 — V5</span>
+            </div>
+
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Author</span>
+              <span class="hero-meta-value">Nicholas Van-Orton</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ARTICLE
+         ========================================================= -->
+    <section class="article-shell">
+      <div class="container">
+
+        <div class="article-intro reveal">
+          <h2>
+            Identity does not remain still. It organizes continuity through change.
+          </h2>
+
+          <p>
+            Visual identity often appears recognizable at first glance, while the principles underlying its operation are far more complex than can be defined by a few characteristic forms, colors, or objects. The carrier of an identity may change, move into a new medium, assume a different social role, or even become part of a larger cultural system, while still retaining a recognizable continuity. The different versions of the Kelly Code examine this problem on an increasingly broader scale. Their central question is what makes identity recognizable amid change, and at what point that identity develops from a phenomenon tied to a person or object into an autonomous cultural system.
+          </p>
+        </div>
+
+        <div class="chapters">
+
+          <!-- V1 -->
+          <article class="chapter reveal" id="v1">
+            <div class="chapter-heading">
+              <div class="chapter-index">Kelly Code V1</div>
+              <h2 class="chapter-title">Portability<br>of Identity</h2>
+            </div>
+
+            <div class="chapter-content">
+              <p>
+                The starting point of Kelly Code V1 is that the persistence of identity is not synonymous with permanence. An identity proves strong when its organizing logic can be carried forward across different situations. In Sonia Delaunay's case, the transition from painting toward textiles and fashion makes this portability visible. Color, geometry, formal rhythm, and visual dynamism do not remain confined to a single medium but continue to operate in new forms of appearance. Recognizability therefore does not arise from the repetition of a specific object or a single visual sign, but from the fact that certain relationships and organizational principles can be recreated across different carriers.
+              </p>
+
+              <p>
+                Grace Kelly's example makes the same question examinable through a change in social role. The role of the Hollywood film star is replaced by that of the Princess of Monaco and a diplomatic figure, while discipline, dignity, control, and elegance continue to function as organizing elements of identity. The change is therefore significant, yet it does not necessarily interrupt the continuity of identity. V1 consequently interprets the visual code not as a collection of isolated characteristics, but as a system of recurring relationships capable of maintaining recognizability under changing conditions.
+              </p>
+            </div>
+          </article>
+
+          <!-- V2 -->
+          <article class="chapter reveal" id="v2">
+            <div class="chapter-heading">
+              <div class="chapter-index">Kelly Code V2</div>
+              <h2 class="chapter-title">Emergent<br>Meaning</h2>
+            </div>
+
+            <div class="chapter-content">
+              <p>
+                This insight leads to Kelly Code V2, which no longer asks primarily how an identity persists across changing carriers, but how visual meaning itself comes into being. The basic premise of V2 is that elements do not necessarily carry their meaning independently: their meaning also emerges from the ways in which they relate to one another. In Sonia Delaunay's painting, therefore, it is not merely the individual fields of color or forms that matter, but their interaction. Visual structure becomes perceptible through the relationships formed between them.
+              </p>
+
+              <p>
+                A similar organizational principle appears in the example of Rosalía's Berghain choreography, where the relationship between bodies and groups creates a perceptible structure. A single body or movement does not necessarily determine the meaning of the composition as a whole. The structure emerges from the ways individual elements recur, align with one another, diverge from one another, or are rearranged. The repetition of these relationships produces a visual rhythm that keeps the viewer's attention in continuous motion.
+              </p>
+
+              <div class="pull-quote">
+                Meaning arises from the dynamics and rhythmic organization of relationships.
+              </div>
+
+              <p>
+                This direction of attention can dissolve the existence of a single stable center. The composition may therefore function not as a hierarchical system in which every element points toward one central meaning, but as a decentralized structure that is continuously reorganized. Kelly Code V2 consequently foregrounds the problem of emergent meaning: meaning arises from the dynamics and rhythmic organization of relationships.
+              </p>
+            </div>
+          </article>
+
+          <!-- V3 -->
+          <article class="chapter reveal" id="v3">
+            <div class="chapter-heading">
+              <div class="chapter-index">Kelly Code V3</div>
+              <h2 class="chapter-title">Cultural<br>Stabilization</h2>
+            </div>
+
+            <div class="chapter-content">
+              <p>
+                Kelly Code V3 expands this idea further by examining how a visual identity can become a stable cultural system across different media, spaces, and forms of appearance. In the case of Jacqueline Kennedy, the White House, the media, clothing, cultural representation, and public presence appear not as isolated domains, but as elements of an interconnected visual system. In Sonia Delaunay's case, color, geometry, textiles, clothing, and interior space are connected in a similar way: they can be understood as different fields of manifestation of the same organizing logic.
+              </p>
+
+              <p>
+                The question of V3 is therefore whether a consistent visual language can create a network of relationships capable of arranging different appearances into a single, culturally recognizable system. Within this system, the concepts of <strong>Controlled Visibility</strong> and <strong>Curated Presence</strong> acquire particular significance. The power of presence is shaped not only by the degree of visibility, but also by the regulation of access and the coordination of appearances. A visual language stabilized in this way may, over time, become a cultural <strong>Reference Point</strong>: a point of orientation to which the interpretation of other phenomena can also be connected.
+              </p>
+            </div>
+          </article>
+
+          <!-- V4 -->
+          <article class="chapter reveal" id="v4">
+            <div class="chapter-heading">
+              <div class="chapter-index">Kelly Code V4</div>
+              <h2 class="chapter-title">Autonomy<br>of Systems</h2>
+            </div>
+
+            <div class="chapter-content">
+              <p>
+                Kelly Code V4 moves the question to a new level by making autonomy, rather than recognizability, its central problem. An identity may be recognizable without having become a genuinely autonomous system; its meaning may still be determined by a previous environment, collective, or relationship. V4 therefore examines when an identity becomes capable of maintaining its own operational framework independently of the system from which it emerged.
+              </p>
+
+              <p>
+                The example of Sonia and Robert Delaunay makes this problem examinable through the relationship between two identities connected to the same artistic system. Despite their shared artistic environment, the question arises whether one identity can become an autonomous cultural system that no longer derives its intelligibility exclusively from the shared framework. Sonia Delaunay's presence beyond painting—in fashion, textile design, and other visual fields—makes this movement toward autonomy visible.
+              </p>
+
+              <p>
+                The example of Beyoncé and Destiny's Child applies the same question to the relationship between collective and individual identity. The essential issue is not simply whether a person can emerge from a collective system, but whether, after being connected to that earlier system, they can establish an independent identity system of their own. V4 thus draws a clear distinction between recognizability and autonomy: the former concerns continuity, while the latter concerns the conditions of independent operation.
+              </p>
+            </div>
+          </article>
+
+          <!-- V5 -->
+          <article class="chapter reveal" id="v5">
+            <div class="chapter-heading">
+              <div class="chapter-index">Kelly Code V5</div>
+              <h2 class="chapter-title">The Era as<br>Identity</h2>
+            </div>
+
+            <div class="chapter-content">
+              <p>
+                This conceptual trajectory leads to Kelly Code V5, which examines the question of visual and cultural identity on the scale of an entire era. The 1980s, as a problem, raise the question of what systems make it possible for a whole historical and cultural period to become recognizable. The 80s Code therefore shifts attention away from individual identity toward cultural relationships, repetitions, and organizational patterns that extend beyond individuals. In its current form, V5 is not a fully developed theoretical model but an open direction of research: an investigation into the hidden systems that connect the different visual and cultural manifestations of an era.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- =====================================================
+             CLOSING
+             ===================================================== -->
+        <section class="closing reveal" aria-labelledby="closing-title">
+          <div class="closing-card">
+            <p class="eyebrow">Systemic Cultural Operation</p>
+
+            <h2 id="closing-title">
+              From individual identity to an era understood as a cultural structure.
+            </h2>
+
+            <p>
+              The broader significance of the Kelly Code thus gradually shifts from the problem of individual identity toward the examination of systemic cultural operation. Across V1–V4, the interconnected questions of portability, meaning emerging from relationships, cultural stabilization, and autonomy form a continuous conceptual trajectory; V5 extends this mode of thinking to a scale at which the era itself becomes an examinable identity structure. The ultimate significance of the Kelly Code therefore lies in making visual identity understandable not as a static property, but as a system formed through relationships, repetitions, regulated presence, and organizing logics. Within this framework, recognizability, cultural stability, and autonomy are not separate phenomena, but manifestations of the same systemic question at different scales.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       PREMIUM FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- CONTACT -->
+        <section class="footer-block" aria-labelledby="footer-contact">
+          <span class="footer-label" id="footer-contact">Contact</span>
+
+          <p>
+            <a class="footer-link" href="mailto:contact@kellycode.us">
+              contact@kellycode.us
+            </a>
+          </p>
+
+          <p style="margin-top: 0.65rem;">
+            <a
+              class="footer-link"
+              href="https://identity.nvo987.us/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              did:web:identity.nvo987.us
+            </a>
+          </p>
+        </section>
+
+        <!-- REFERENCE -->
+        <section class="footer-block" aria-labelledby="footer-reference">
+          <span class="footer-label" id="footer-reference">Reference</span>
+
+          <p>
+            <a
+              class="footer-link"
+              href="https://www.nvo987.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              www.nvo987.fr
+            </a>
+          </p>
+        </section>
+
+        <!-- AUTHOR -->
+        <section class="footer-block" aria-labelledby="footer-author">
+          <span class="footer-label" id="footer-author">Author</span>
+
+          <p class="footer-author">
+            Nicholas Van-Orton
+            <span class="footer-subtitle">
+              NVO987 - Culture Visuelle Moderne et Contemporaine
+            </span>
+          </p>
+        </section>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Kelly Code</span>
+        <span>Visual Identity / Cultural Systems</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       MINIMAL INTERACTION SCRIPT
+       ========================================================= -->
+  <script>
+    (() => {
+      "use strict";
+
+      /* Dynamic year */
+      const year = document.getElementById("year");
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      /* Elegant viewport reveal */
+      const elements = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.08,
+            rootMargin: "0px 0px -5% 0px"
+          }
+        );
+
+        elements.forEach((element) => observer.observe(element));
+      } else {
+        elements.forEach((element) => {
+          element.classList.add("is-visible");
+        });
+      }
+    })();
+  </script>
+</body>
+  </html> 
