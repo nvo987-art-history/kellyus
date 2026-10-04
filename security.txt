@@ -1,0 +1,5 @@
+Contact: mailto:contact@kellycode.us
+Expires: 2027-10-04T00:00:00.000Z
+Preferred-Languages: en, fr, hu
+Canonical: https://kellycode.us/.well-known/security.txt
+Policy: https://kellycode.us/security.txt
