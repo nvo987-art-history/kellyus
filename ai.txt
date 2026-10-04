@@ -1,0 +1,29 @@
+# Kelly Code — AI Information
+
+site: https://kellycode.us/
+name: Kelly Code
+author: Nicholas Van-Orton
+organization: NVO987 – Culture Visuelle Moderne et Contemporaine
+language: en
+
+content-type: cultural research
+primary-topic: visual identity
+secondary-topics:
+  - cultural systems
+  - visual culture
+  - art history
+  - contemporary culture
+  - identity systems
+  - cultural stabilization
+  - visual perception
+
+ai-use: permitted for indexing, discovery, citation, and non-deceptive
+research assistance, subject to applicable copyright and licensing rules.
+
+training: no blanket license is granted for commercial AI model training.
+
+copyright: © 2026 Nicholas Van-Orton / NVO987
+
+canonical: https://kellycode.us/
+
+contact: contact@kellycode.us
