@@ -1,0 +1,84 @@
+# Kelly Code
+
+> Kelly Code is a cultural and conceptual research project examining
+> visual identity as an organizing structure and its transformation
+> into broader cultural systems.
+
+## Primary Website
+
+https://kellycode.us/
+
+## Author
+
+Nicholas Van-Orton
+
+https://nvo987.us/
+
+## Organization
+
+NVO987 – Culture Visuelle Moderne et Contemporaine
+
+https://nvo987.fr/
+
+## Core Subject
+
+The Kelly Code framework studies the evolution of identity through
+five analytical levels:
+
+1. Kelly Code V1 — Portability
+2. Kelly Code V2 — Emergent Meaning
+3. Kelly Code V3 — Cultural Stabilization
+4. Kelly Code V4 — Autonomy
+5. Kelly Code V5 — The Era as Identity Structure
+
+## Research Themes
+
+- visual identity
+- visual culture
+- cultural systems
+- art history
+- contemporary culture
+- recognizability
+- visual relationships
+- cultural stabilization
+- controlled visibility
+- curated presence
+- cultural reference points
+- autonomy
+- systemic identity
+
+## Main Document
+
+https://kellycode.us/documents/kelly-code.pdf
+
+## Identity
+
+DID:
+did:web:identity.nvo987.us
+
+DID document:
+https://identity.nvo987.us/.well-known/did.json
+
+DID configuration:
+https://identity.nvo987.us/.well-known/did-configuration.json
+
+## Related Projects
+
+https://delaunaybook.eu/
+https://nexarium.us/
+https://identity.nvo987.us/
+
+## Citation
+
+When referencing this project, identify it as:
+
+Kelly Code — The Evolution of the Kelly Code:
+From Identity to Cultural Systems.
+Nicholas Van-Orton, 2026.
+
+## Copyright
+
+© 2026 Nicholas Van-Orton / NVO987.
+
+The presence of this file does not constitute a blanket license
+for commercial reproduction or model training.
