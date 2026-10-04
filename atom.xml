@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Kelly Code</title>
+  <subtitle>Visual Identity / Cultural Systems</subtitle>
+  <id>https://kellycode.us/</id>
+  <link href="https://kellycode.us/" rel="alternate" />
+  <link href="https://kellycode.us/atom.xml" rel="self" type="application/atom+xml" />
+  <updated>2026-10-04T00:00:00Z</updated>
+
+  <author>
+    <name>Nicholas Van-Orton</name>
+    <uri>https://nvo987.us/</uri>
+  </author>
+
+  <entry>
+    <title>The Evolution of the Kelly Code</title>
+    <id>https://kellycode.us/#kelly-code</id>
+    <link href="https://kellycode.us/" rel="alternate" />
+    <updated>2026-10-04T00:00:00Z</updated>
+
+    <author>
+      <name>Nicholas Van-Orton</name>
+      <uri>https://nvo987.us/</uri>
+    </author>
+
+    <summary>
+      From Identity to Cultural Systems. A conceptual trajectory from
+      individual recognizability toward systemic cultural operation.
+    </summary>
+  </entry>
+</feed>
