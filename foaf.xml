@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/">
+
+  <foaf:Person rdf:about="https://nvo987.us/#person">
+
+    <foaf:name>Nicholas Van-Orton</foaf:name>
+
+    <foaf:homepage rdf:resource="https://nvo987.us/" />
+
+    <foaf:mbox rdf:resource="mailto:contact@kellycode.us" />
+
+    <foaf:workplaceHomepage rdf:resource="https://nvo987.fr/" />
+
+    <foaf:interest rdf:resource="https://kellycode.us/" />
+
+    <foaf:account>
+      <foaf:OnlineAccount>
+        <foaf:accountServiceHomepage rdf:resource="https://orcid.org/" />
+        <foaf:accountName>0009-0007-4628-1871</foaf:accountName>
+      </foaf:OnlineAccount>
+    </foaf:account>
+
+  </foaf:Person>
+
+</rdf:RDF>
