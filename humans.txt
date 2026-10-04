@@ -1,0 +1,41 @@
+/* TEAM */
+
+Project: Kelly Code
+Website: https://kellycode.us/
+
+Author: Nicholas Van-Orton
+Role: Independent researcher / Founder of NVO987
+
+Organization: NVO987 – Culture Visuelle Moderne et Contemporaine
+Website: https://nvo987.fr/
+
+Contact: contact@kellycode.us
+Organization contact: contact@nvo987.fr
+
+/* SITE */
+
+Site name: Kelly Code
+Site type: Cultural research / Visual identity
+Primary language: English
+
+Technology:
+HTML5
+CSS3
+JavaScript
+Schema.org JSON-LD
+
+Typography:
+Cormorant Garamond
+Inter
+
+/* IDENTITY */
+
+DID:
+did:web:identity.nvo987.us
+
+DID Web:
+https://identity.nvo987.us/
+
+/* COPYRIGHT */
+
+© 2026 Nicholas Van-Orton / NVO987
